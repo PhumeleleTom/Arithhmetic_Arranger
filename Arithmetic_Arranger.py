@@ -1,4 +1,4 @@
-def arithmetic_arranger(myList, printAnswer=False): #return output
+def arithmetic_arranger(myList, printAnswer=False):
     
     myListLen = len(myList)
     errorCount = 0
@@ -22,12 +22,12 @@ def arithmetic_arranger(myList, printAnswer=False): #return output
         myStringLen_2 = len(myString[2])
         
         if((myStringLen_0 > 4) or (myStringLen_0 <= 0)):
-                print("Error: Numbers cannot be more than four digits.")#return error
+                output += "\nError: Numbers cannot be more than four digits."
                 errorCount += 1
                 errorFound = True
                 
         if((myStringLen_2 > 4) or (myStringLen_2 <= 0)):
-                print("Error: Numbers cannot be more than four digits.")#return error
+                output += "\nError: Numbers cannot be more than four digits."
                 errorCount += 1
                 errorFound = True
                 
@@ -35,26 +35,26 @@ def arithmetic_arranger(myList, printAnswer=False): #return output
             int(myString[0])
         except:
             errorCount += 1
-            print("Error: Numbers must only contain digits")#return error
+            output += "\nError: Numbers must only contain digits"
             errorFound = True
             
         try:
             int(myString[2])
         except:
             errorCount += 1
-            print("Error: Numbers must only contain digits")#return error
+            output += "\nError: Numbers must only contain digits"
             errorFound = True
             
         if(myString[1] != '+' and myString[1] != '-'):
-                print("Error: Operator must be '+' or '-'.")#return error
+                output += "\nError: Operator must be '+' or '-'."
                 errorCount += 1
                 errorFound = True
 
         if(errorCount >= 5):
-            print("Error: Too many problems.")#return error
+            output = "Error: Too many problems."
 
         if(errorFound):
-            return
+            return output
                 
         if(myStringLen_0 > myStringLen_2):
             bigNumPos = 0
@@ -74,9 +74,9 @@ def arithmetic_arranger(myList, printAnswer=False): #return output
                 answer = int(myString[0])-int(myString[2])
             outputLine_4 += " "*((totalLen)-len(str(answer)))+str(answer)+" "*4
     output = outputLine_1 + "\n" + outputLine_2 + "\n" + outputLine_3 + "\n" + outputLine_4
-    print(output)
+    return output
 
 if __name__ == '__main__':
-    arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"],True)
+    print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"],True))
 
 

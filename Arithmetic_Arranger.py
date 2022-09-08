@@ -73,7 +73,7 @@ def arithmetic_arranger(myList, printAnswer=False):
                 answer = int(myString[0])+int(myString[2])
             else:
                 answer = int(myString[0])-int(myString[2])
-            outputLine_4 += " "+" "*(bigNumLen-len(str(answer)))+str(answer)+" "*4
+            outputLine_4 += "-"+"-"*(bigNumLen-len(str(answer)))+str(answer)+" "*4
             
     output = outputLine_1 + "\n" + outputLine_2 + "\n" + outputLine_3 + "\n" + outputLine_4
     return output
